@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "title": "One Grateful Migrant",
+    "slug": "sample-book-title",
+    "description": "This is a sample book description. Replace this with your actual book information.",
+    "coverImage": "https://m.media-amazon.com/images/I/51te97el0wL.jpg",
+    "author": "Author Name",
+    "publishDate": "2026-02-04T12:19:40.264Z",
+    "purchaseLink": "https://www.amazon.com",
+    "featured": true,
+    "genres": [
+      "Fiction",
+      "Adventure"
+    ],
+    "rating": 4.5
+  }
+]
