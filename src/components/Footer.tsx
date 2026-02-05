@@ -1,6 +1,7 @@
 'use client';
 
 import { Box, Container, Stack, Typography, Link as MuiLink, Divider } from '@mui/material';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export function Footer() {
@@ -10,6 +11,7 @@ export function Footer() {
     { label: 'Home', href: '/' },
     { label: 'Blog', href: '/blogs' },
     { label: 'Books', href: '/books' },
+    { label: 'Contact', href: '/contact' },
     { label: 'Admin', href: '/admin' },
   ];
 
@@ -35,26 +37,39 @@ export function Footer() {
                   display: 'flex',
                   alignItems: 'center',
                   gap: 1,
+                  cursor: 'pointer',
                 }}
               >
-                <Box
-                  sx={{
-                    width: '40px',
-                    height: '40px',
-                    background: 'linear-gradient(135deg, #e94560 0%, #ff6b7a 100%)',
+                <Image
+                  src="/logo.png"
+                  alt="Logo"
+                  width={50}
+                  height={50}
+                  style={{
                     borderRadius: '8px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'white',
+                    objectFit: 'contain',
+                  }}
+                  priority
+                  unoptimized
+                />
+                <Typography
+                  variant="h6"
+                  sx={{
                     fontWeight: 700,
-                    fontSize: '1.2rem',
+                    fontSize: '1.3rem',
+                    display: { xs: 'none', sm: 'block' },
+                    background: 'linear-gradient(135deg, #1a1a2e 0%, #e94560 100%)',
+                    backgroundClip: 'text',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      textShadow: '0 0 20px rgba(233, 69, 96, 0.4)',
+                      transform: 'scale(1.05)',
+                    },
                   }}
                 >
-                  A
-                </Box>
-                <Typography variant="h6" sx={{ fontWeight: 700 }}>
-                  Author Site
+                  Dr Prem Dwivedi
                 </Typography>
               </Box>
               <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.7)' }}>
@@ -104,9 +119,14 @@ export function Footer() {
 
           {/* Copyright */}
           <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" alignItems="center">
-            <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.5)' }}>
-              © {currentYear} Author Portfolio. All rights reserved.
-            </Typography>
+            <Stack spacing={0.5}>
+              <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.5)' }}>
+                © Dr Prem Dwivedi. All rights reserved.
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.5)' }}>
+                Country - Australia
+              </Typography>
+            </Stack>
             <Stack direction="row" spacing={3}>
               <MuiLink
                 href="#"

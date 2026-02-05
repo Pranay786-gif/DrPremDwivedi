@@ -34,6 +34,7 @@ export function Header() {
     { label: 'Home', href: '/' },
     { label: 'Blog', href: '/blogs' },
     { label: 'Books', href: '/books' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   const handleAdminMenuOpen = (event: React.MouseEvent<HTMLElement>) => {

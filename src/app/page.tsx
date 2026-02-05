@@ -419,7 +419,7 @@ export default function HomePage() {
       <Box 
         sx={{ 
           py: 8, 
-          backgroundColor: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
+          background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
           color: 'white'
         }}
       >
@@ -458,11 +458,19 @@ export default function HomePage() {
                 variant="outlined"
                 sx={{
                   borderColor: 'white',
+                  borderWidth: '2px',
                   color: 'white',
+                  fontWeight: 600,
                   px: 4,
                   py: 1.5,
+                  fontSize: '1rem',
+                  transition: 'all 0.3s ease',
                   '&:hover': {
-                    backgroundColor: 'rgba(255,255,255,0.1)',
+                    backgroundColor: 'white',
+                    color: '#1a1a2e',
+                    borderColor: 'white',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 8px 20px rgba(255,255,255,0.3)',
                   }
                 }}
                 endIcon={<ArrowRight />}
