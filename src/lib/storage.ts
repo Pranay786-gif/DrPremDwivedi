@@ -1,10 +1,10 @@
-import { BlogPost, Book } from '@/types';
-import fs from 'fs';
-import path from 'path';
+import { BlogPost, Book } from "@/types";
+import fs from "fs";
+import path from "path";
 
-const dataDir = path.join(process.cwd(), 'public', 'data');
-const blogsFile = path.join(dataDir, 'blogs.json');
-const booksFile = path.join(dataDir, 'books.json');
+const dataDir = path.join(process.cwd(), "public", "data");
+const blogsFile = path.join(dataDir, "blogs.json");
+const booksFile = path.join(dataDir, "books.json");
 
 /**
  * Ensure data directory exists
@@ -25,10 +25,11 @@ export function initializeData() {
   if (!fs.existsSync(blogsFile)) {
     const defaultBlogs: BlogPost[] = [
       {
-        id: '1',
-        title: 'Welcome to My Blog',
-        slug: 'welcome-to-my-blog',
-        excerpt: 'This is my first blog post introducing my new author website.',
+        id: "1",
+        title: "Welcome to My Blog",
+        slug: "welcome-to-my-blog",
+        excerpt:
+          "This is my first blog post introducing my new author website.",
         content: `# Welcome to My Blog
 
 I'm excited to share my thoughts, experiences, and insights with you through this blog. 
@@ -42,11 +43,11 @@ On this blog, you'll find:
 - Writing tips and creative inspiration
 
 Thank you for visiting!`,
-        author: 'Author Name',
+        author: "Author Name",
         publishDate: new Date().toISOString(),
         updatedDate: new Date().toISOString(),
         featured: true,
-        tags: ['welcome', 'introduction', 'blog'],
+        tags: ["welcome", "introduction", "blog"],
       },
     ];
     fs.writeFileSync(blogsFile, JSON.stringify(defaultBlogs, null, 2));
@@ -56,16 +57,18 @@ Thank you for visiting!`,
   if (!fs.existsSync(booksFile)) {
     const defaultBooks: Book[] = [
       {
-        id: '1',
-        title: 'Sample Book Title',
-        slug: 'sample-book-title',
-        description: 'This is a sample book description. Replace this with your actual book information.',
-        coverImage: 'https://via.placeholder.com/300x400?text=Book+Cover',
-        author: 'Author Name',
+        id: "1",
+        title: "Sample Book Title",
+        slug: "sample-book-title",
+        description:
+          "This is a sample book description. Replace this with your actual book information.",
+        coverImage: "https://via.placeholder.com/300x400?text=Book+Cover",
+        author: "Author Name",
         publishDate: new Date().toISOString(),
-        purchaseLink: 'https://www.amazon.com',
+        purchaseLinkAmazon: "https://www.amazon.com",
+        purchaseLinkPothi: "https://pothi.com/",
         featured: true,
-        genres: ['Fiction', 'Adventure'],
+        genres: ["Fiction", "Adventure"],
         rating: 4.5,
       },
     ];
@@ -80,11 +83,11 @@ export function getBlogs(): BlogPost[] {
   ensureDataDir();
   try {
     if (fs.existsSync(blogsFile)) {
-      const data = fs.readFileSync(blogsFile, 'utf-8');
+      const data = fs.readFileSync(blogsFile, "utf-8");
       return JSON.parse(data);
     }
   } catch (error) {
-    console.error('Error reading blogs:', error);
+    console.error("Error reading blogs:", error);
   }
   return [];
 }
@@ -100,7 +103,9 @@ export function getBlogBySlug(slug: string): BlogPost | null {
 /**
  * Create a new blog post
  */
-export function createBlog(blog: Omit<BlogPost, 'id' | 'publishDate' | 'updatedDate'>): BlogPost {
+export function createBlog(
+  blog: Omit<BlogPost, "id" | "publishDate" | "updatedDate">,
+): BlogPost {
   const blogs = getBlogs();
   const newBlog: BlogPost = {
     ...blog,
@@ -116,7 +121,10 @@ export function createBlog(blog: Omit<BlogPost, 'id' | 'publishDate' | 'updatedD
 /**
  * Update a blog post
  */
-export function updateBlog(id: string, updates: Partial<BlogPost>): BlogPost | null {
+export function updateBlog(
+  id: string,
+  updates: Partial<BlogPost>,
+): BlogPost | null {
   const blogs = getBlogs();
   const index = blogs.findIndex((blog) => blog.id === id);
   if (index === -1) return null;
@@ -152,11 +160,11 @@ export function getBooks(): Book[] {
   ensureDataDir();
   try {
     if (fs.existsSync(booksFile)) {
-      const data = fs.readFileSync(booksFile, 'utf-8');
+      const data = fs.readFileSync(booksFile, "utf-8");
       return JSON.parse(data);
     }
   } catch (error) {
-    console.error('Error reading books:', error);
+    console.error("Error reading books:", error);
   }
   return [];
 }
@@ -172,7 +180,7 @@ export function getBookBySlug(slug: string): Book | null {
 /**
  * Create a new book
  */
-export function createBook(book: Omit<Book, 'id' | 'publishDate'>): Book {
+export function createBook(book: Omit<Book, "id" | "publishDate">): Book {
   const books = getBooks();
   const newBook: Book = {
     ...book,

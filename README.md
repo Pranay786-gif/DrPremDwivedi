@@ -5,12 +5,14 @@ A professional, modern author portfolio website built with Next.js, TypeScript, 
 ## 🌟 Features
 
 ### For Authors (Admin Panel)
+
 - **Blog Management**: Create, edit, and delete blog posts with rich markdown support
 - **Book Management**: Add and manage published books with cover images and purchase links
 - **Tag System**: Organize blog posts with custom tags for easy filtering
 - **Beautiful Admin Dashboard**: Intuitive interface for managing all content
 
 ### For Visitors
+
 - **Home Page**: Eye-catching landing page with featured articles and books
 - **Blog Section**: Browse all articles with search and tag filtering capabilities
 - **Books Section**: Discover published works with genre filtering and ratings
@@ -84,35 +86,41 @@ auther-site/
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm or yarn
 
 ### Installation
 
 1. **Clone or enter the project directory**:
+
 ```bash
 cd auther-site
 ```
 
 2. **Install dependencies**:
+
 ```bash
 npm install
 ```
 
 3. **Run the development server**:
+
 ```bash
 npm run dev
 ```
 
 4. **Open your browser**:
-Navigate to [http://localhost:3000](http://localhost:3000)
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
 ## 📝 Usage
 
 ### Admin Dashboard
+
 Access the admin panel at `/admin` to manage your content.
 
 #### Adding a Blog Post
+
 1. Go to `/admin/blogs`
 2. Click "New Blog Post"
 3. Fill in the form with:
@@ -125,6 +133,7 @@ Access the admin panel at `/admin` to manage your content.
 4. Click "Save"
 
 #### Adding a Book
+
 1. Go to `/admin/books`
 2. Click "Add Book"
 3. Fill in the form with:
@@ -140,17 +149,23 @@ Access the admin panel at `/admin` to manage your content.
 ## 🎨 Customization
 
 ### Theme Colors
+
 Edit `src/lib/theme.ts` to customize colors:
+
 - Primary color: `#1a1a2e` (dark blue)
 - Secondary color: `#e94560` (coral red)
 
 ### Typography
+
 Customize fonts and sizes in the theme file. Currently uses:
+
 - **Headers**: Playfair Display (elegant serif)
 - **Body**: Poppins (modern sans-serif)
 
 ### Content Storage
+
 By default, data is stored in JSON files at `public/data/`. To use a database:
+
 1. Modify `src/lib/storage.ts` to use your database
 2. Update API routes in `src/app/api/`
 
@@ -173,6 +188,7 @@ npm run lint
 ## 📊 Data Management
 
 ### Blog Posts Structure
+
 ```typescript
 {
   id: string;
@@ -190,6 +206,7 @@ npm run lint
 ```
 
 ### Books Structure
+
 ```typescript
 {
   id: string;
@@ -199,7 +216,8 @@ npm run lint
   coverImage: string;
   author: string;
   publishDate: string;
-  purchaseLink: string;
+  purchaseLinkAmazon: string;
+  purchaseLinkPothi: string;
   featured: boolean;
   genres: string[];
   rating?: number;
@@ -209,17 +227,20 @@ npm run lint
 ## 🎯 Features Highlight
 
 ### Animations
+
 - Smooth page transitions with Framer Motion
 - Card hover effects that lift up
 - Staggered animations on item lists
 - Gradient text animations
 
 ### Responsive Design
+
 - Mobile-first approach
 - Adaptive layouts for all screen sizes
 - Touch-friendly navigation
 
 ### Performance
+
 - Next.js optimizations (Code splitting, Image optimization)
 - Static generation where possible
 - Efficient API routes

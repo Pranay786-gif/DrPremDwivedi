@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Dialog,
@@ -11,31 +11,38 @@ import {
   Chip,
   Stack,
   Rating,
-} from '@mui/material';
-import { useState, useEffect } from 'react';
-import { Book } from '@/types';
+} from "@mui/material";
+import { useState, useEffect } from "react";
+import { Book } from "@/types";
 
 interface BookFormProps {
   open: boolean;
   onClose: () => void;
-  onSubmit: (book: Omit<Book, 'id' | 'publishDate'>) => Promise<void>;
+  onSubmit: (book: Omit<Book, "id" | "publishDate">) => Promise<void>;
   initialData?: Book;
   loading?: boolean;
 }
 
-export function BookForm({ open, onClose, onSubmit, initialData, loading = false }: BookFormProps) {
-  const [formData, setFormData] = useState<Omit<Book, 'id' | 'publishDate'>>({
-    title: '',
-    slug: '',
-    description: '',
-    coverImage: '',
-    author: 'Author Name',
-    purchaseLink: '',
+export function BookForm({
+  open,
+  onClose,
+  onSubmit,
+  initialData,
+  loading = false,
+}: BookFormProps) {
+  const [formData, setFormData] = useState<Omit<Book, "id" | "publishDate">>({
+    title: "",
+    slug: "",
+    description: "",
+    coverImage: "",
+    author: "Author Name",
+    purchaseLinkAmazon: "",
+    purchaseLinkPothi: "",
     featured: false,
     genres: [],
     rating: 5,
   });
-  const [genreInput, setGenreInput] = useState('');
+  const [genreInput, setGenreInput] = useState("");
 
   useEffect(() => {
     if (initialData) {
@@ -43,18 +50,19 @@ export function BookForm({ open, onClose, onSubmit, initialData, loading = false
       setFormData(data);
     } else {
       setFormData({
-        title: '',
-        slug: '',
-        description: '',
-        coverImage: '',
-        author: 'Author Name',
-        purchaseLink: '',
+        title: "",
+        slug: "",
+        description: "",
+        coverImage: "",
+        author: "Author Name",
+        purchaseLinkAmazon: "",
+        purchaseLinkPothi: "",
         featured: false,
         genres: [],
         rating: 5,
       });
     }
-    setGenreInput('');
+    setGenreInput("");
   }, [initialData, open]);
 
   const handleChange = (field: keyof typeof formData, value: any) => {
@@ -67,7 +75,7 @@ export function BookForm({ open, onClose, onSubmit, initialData, loading = false
         ...prev,
         genres: [...prev.genres, genreInput.trim()],
       }));
-      setGenreInput('');
+      setGenreInput("");
     }
   };
 
@@ -79,8 +87,14 @@ export function BookForm({ open, onClose, onSubmit, initialData, loading = false
   };
 
   const handleSubmit = async () => {
-    if (!formData.title || !formData.slug || !formData.coverImage || !formData.purchaseLink) {
-      alert('Please fill in all required fields');
+    if (
+      !formData.title ||
+      !formData.slug ||
+      !formData.coverImage ||
+      !formData.purchaseLinkAmazon ||
+      !formData.purchaseLinkPothi
+    ) {
+      alert("Please fill in all required fields");
       return;
     }
     await onSubmit(formData);
@@ -88,28 +102,30 @@ export function BookForm({ open, onClose, onSubmit, initialData, loading = false
 
   return (
     <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth>
-      <DialogTitle sx={{ fontSize: '1.5rem', fontWeight: 600 }}>
-        {initialData ? 'Edit Book' : 'Add New Book'}
+      <DialogTitle sx={{ fontSize: "1.5rem", fontWeight: 600 }}>
+        {initialData ? "Edit Book" : "Add New Book"}
       </DialogTitle>
-      <DialogContent sx={{ pt: 3, display: 'flex', flexDirection: 'column', gap: 2 }}>
+      <DialogContent
+        sx={{ pt: 3, display: "flex", flexDirection: "column", gap: 2 }}
+      >
         <TextField
           label="Title"
           value={formData.title}
-          onChange={(e) => handleChange('title', e.target.value)}
+          onChange={(e) => handleChange("title", e.target.value)}
           fullWidth
           required
         />
         <TextField
           label="Slug"
           value={formData.slug}
-          onChange={(e) => handleChange('slug', e.target.value)}
+          onChange={(e) => handleChange("slug", e.target.value)}
           fullWidth
           required
         />
         <TextField
           label="Description"
           value={formData.description}
-          onChange={(e) => handleChange('description', e.target.value)}
+          onChange={(e) => handleChange("description", e.target.value)}
           fullWidth
           multiline
           rows={4}
@@ -117,32 +133,40 @@ export function BookForm({ open, onClose, onSubmit, initialData, loading = false
         <TextField
           label="Cover Image URL"
           value={formData.coverImage}
-          onChange={(e) => handleChange('coverImage', e.target.value)}
+          onChange={(e) => handleChange("coverImage", e.target.value)}
           fullWidth
           required
           helperText="URL to book cover image"
         />
         <TextField
           label="Purchase Link"
-          value={formData.purchaseLink}
-          onChange={(e) => handleChange('purchaseLink', e.target.value)}
+          value={formData.purchaseLinkAmazon}
+          onChange={(e) => handleChange("purchaseLinkAmazon", e.target.value)}
           fullWidth
           required
-          helperText="Amazon or other purchase link"
+          helperText="Amazon link"
+        />
+        <TextField
+          label="Purchase Link"
+          value={formData.purchaseLinkPothi}
+          onChange={(e) => handleChange("purchaseLinkPothi", e.target.value)}
+          fullWidth
+          required
+          helperText="Pothi Link"
         />
         <TextField
           label="Author"
           value={formData.author}
-          onChange={(e) => handleChange('author', e.target.value)}
+          onChange={(e) => handleChange("author", e.target.value)}
           fullWidth
         />
 
         <Box>
-          <Stack direction="row" gap={1} sx={{ mb: 2, alignItems: 'center' }}>
+          <Stack direction="row" gap={1} sx={{ mb: 2, alignItems: "center" }}>
             <span>Rating:</span>
             <Rating
               value={formData.rating || 5}
-              onChange={(e, value) => handleChange('rating', value)}
+              onChange={(e, value) => handleChange("rating", value)}
               size="large"
             />
           </Stack>
@@ -155,7 +179,7 @@ export function BookForm({ open, onClose, onSubmit, initialData, loading = false
               value={genreInput}
               onChange={(e) => setGenreInput(e.target.value)}
               onKeyPress={(e) => {
-                if (e.key === 'Enter') {
+                if (e.key === "Enter") {
                   handleAddGenre();
                 }
               }}
@@ -165,7 +189,7 @@ export function BookForm({ open, onClose, onSubmit, initialData, loading = false
             <Button
               onClick={handleAddGenre}
               variant="outlined"
-              sx={{ whiteSpace: 'nowrap' }}
+              sx={{ whiteSpace: "nowrap" }}
             >
               Add Genre
             </Button>
@@ -188,7 +212,7 @@ export function BookForm({ open, onClose, onSubmit, initialData, loading = false
           Cancel
         </Button>
         <Button onClick={handleSubmit} variant="contained" disabled={loading}>
-          {loading ? 'Saving...' : 'Save'}
+          {loading ? "Saving..." : "Save"}
         </Button>
       </DialogActions>
     </Dialog>
