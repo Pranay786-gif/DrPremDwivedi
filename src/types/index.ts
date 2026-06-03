@@ -26,7 +26,8 @@ export interface Book {
   coverImage: string;
   author: string;
   publishDate: string;
-  purchaseLink: string;
+  purchaseLinkAmazon: string;
+  purchaseLinkPothi: string;
   featured: boolean;
   genres: string[];
   rating?: number;
