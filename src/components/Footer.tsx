@@ -30,7 +30,6 @@ export function Footer() {
         color: "white",
         pt: 6,
         pb: 4,
-        mt: 8,
       }}
     >
       <Container maxWidth="lg">
@@ -70,7 +69,7 @@ export function Footer() {
                     fontSize: "1.3rem",
                     display: { xs: "none", sm: "block" },
                     background:
-                      "linear-gradient(135deg, #1a1a2e 0%, #e94560 100%)",
+                      "linear-gradient(135deg, #b6b6cb 0%, #e94560 100%)",
                     backgroundClip: "text",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",

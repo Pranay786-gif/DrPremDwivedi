@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Card,
@@ -9,11 +9,11 @@ import {
   Stack,
   Typography,
   Button,
-} from '@mui/material';
-import { Book } from '@/types';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { OpenInNew } from '@mui/icons-material';
+} from "@mui/material";
+import { Book } from "@/types";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { OpenInNew } from "@mui/icons-material";
 
 interface BookCardProps {
   book: Book;
@@ -30,20 +30,20 @@ export function BookCardPublic({ book, index = 0 }: BookCardProps) {
       transition={{ delay: index * 0.1, duration: 0.5 }}
       whileHover={{ y: -12 }}
       sx={{
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        overflow: 'hidden',
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        overflow: "hidden",
       }}
     >
       <CardMedia
         component="div"
         sx={{
-          width: '100%',
-          paddingTop: '130%',
-          backgroundColor: '#f0f0f0',
-          position: 'relative',
-          overflow: 'hidden',
+          width: "100%",
+          paddingTop: "130%",
+          backgroundColor: "#f0f0f0",
+          position: "relative",
+          overflow: "hidden",
         }}
       >
         <Image
@@ -51,29 +51,35 @@ export function BookCardPublic({ book, index = 0 }: BookCardProps) {
           alt={book.title}
           fill
           style={{
-            objectFit: 'cover',
+            objectFit: "cover",
           }}
         />
       </CardMedia>
 
-      <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+      <CardContent
+        sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}
+      >
         <Typography
           variant="h6"
           sx={{
             fontWeight: 600,
-            mb: 1,
-            display: '-webkit-box',
+            mb: 0.5,
+            display: "-webkit-box",
             WebkitLineClamp: 2,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
-            minHeight: '3em',
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            minHeight: "3em",
           }}
         >
           {book.title}
         </Typography>
 
         {book.genres.length > 0 && (
-          <Stack direction="row" spacing={0.5} sx={{ mb: 2, flexWrap: 'wrap', gap: 0.5 }}>
+          <Stack
+            direction="row"
+            spacing={0.5}
+            sx={{ mb: 2, flexWrap: "wrap", gap: 0.5 }}
+          >
             {book.genres.map((genre) => (
               <Chip key={genre} label={genre} size="small" variant="outlined" />
             ))}
@@ -85,38 +91,52 @@ export function BookCardPublic({ book, index = 0 }: BookCardProps) {
           color="textSecondary"
           sx={{
             mb: 2,
-            display: '-webkit-box',
+            display: "-webkit-box",
             WebkitLineClamp: 3,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
             flexGrow: 1,
           }}
         >
           {book.description}
         </Typography>
-
-        {book.rating && (
+        {/* Right now not using rating section */}
+        {/* {book.rating && (
           <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 2 }}>
             <Rating value={book.rating} readOnly size="small" />
             <Typography variant="body2" color="textSecondary">
               {book.rating.toFixed(1)}/5
             </Typography>
           </Stack>
-        )}
+        )} */}
 
         <Button
           variant="contained"
           color="secondary"
           fullWidth
           endIcon={<OpenInNew />}
-          href={book.purchaseLink}
+          href={book.purchaseLinkAmazon}
           target="_blank"
           rel="noopener noreferrer"
           sx={{
-            mt: 'auto',
+            mt: "auto",
           }}
         >
-          Buy Now
+          Available on Amazon
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          fullWidth
+          endIcon={<OpenInNew />}
+          href={book.purchaseLinkPothi}
+          target="_blank"
+          rel="noopener noreferrer"
+          sx={{
+            mt: "8px",
+          }}
+        >
+          Available on Pothi
         </Button>
       </CardContent>
     </MotionCard>

@@ -470,7 +470,7 @@ export default function HomePage() {
                     color: "#555",
                   }}
                 >
-                  writing explores identity, belonging, resilience, cultural
+                  His writing explores identity, belonging, resilience, cultural
                   transition, and the enduring connection between people and
                   their roots. His autobiography,{" "}
                   <Box component="span" sx={{ fontWeight: 700 }}>
