@@ -466,7 +466,7 @@ export default function HomePage() {
                   developed a passion for storytelling rooted in memory,
                   migration, and lived experience. His writing journey was
                   nurtured through the Burnside Writers Group in Adelaide, and
-                  his first nonfiction stories appeared in the 2025 anthology
+                  his first nonfiction stories appeared in the 2025 anthology{" "}
                   <Box component="span" sx={{ fontWeight: 700 }}>
                     Tall Tales & True.
                   </Box>
@@ -481,10 +481,10 @@ export default function HomePage() {
                   }}
                 >
                   In 2026, his autobiography, The Unlikely Indian Migrant,
-                  became a #1{" "}
+                  became a{" "}
                   <Box component="span" sx={{ fontWeight: 700 }}>
                     {" "}
-                    Amazon Bestseller in Australia.
+                    #1 Amazon Bestseller in Australia.
                   </Box>{" "}
                   The book tells the inspiring story of a village boy who
                   overcame social, educational, and cultural barriers to build a
