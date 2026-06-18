@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -10,10 +10,10 @@ import {
   CardContent,
   Typography,
   Stack,
-} from '@mui/material';
-import Link from 'next/link';
-import { Article, MenuBook, Dashboard } from '@mui/icons-material';
-import { motion } from 'framer-motion';
+} from "@mui/material";
+import Link from "next/link";
+import { Article, MenuBook, Dashboard } from "@mui/icons-material";
+import { motion } from "framer-motion";
 
 const MotionCard = motion(Card);
 const MotionBox = motion(Box);
@@ -28,8 +28,8 @@ export default function AdminPage() {
   const fetchStats = async () => {
     try {
       const [blogsRes, booksRes] = await Promise.all([
-        fetch('/api/blogs'),
-        fetch('/api/books'),
+        fetch("/api/blogs"),
+        fetch("/api/books"),
       ]);
 
       if (blogsRes.ok && booksRes.ok) {
@@ -41,26 +41,26 @@ export default function AdminPage() {
         });
       }
     } catch (error) {
-      console.error('Failed to fetch stats:', error);
+      console.error("Failed to fetch stats:", error);
     }
   };
 
   const adminCards = [
     {
-      title: 'Blog Management',
-      description: 'Create, edit, and manage your blog posts',
+      title: "Blog Management",
+      description: "Create, edit, and manage your blog posts",
       icon: Article,
-      href: '/admin/blogs',
+      href: "/admin/blogs",
       stats: `${stats.blogs} posts`,
-      color: '#e94560',
+      color: "#8EE53F",
     },
     {
-      title: 'Book Management',
-      description: 'Manage your books and purchase links',
+      title: "Book Management",
+      description: "Manage your books and purchase links",
       icon: MenuBook,
-      href: '/admin/books',
+      href: "/admin/books",
       stats: `${stats.books} books`,
-      color: '#1a1a2e',
+      color: "#1a1a2e",
     },
   ];
 
@@ -72,63 +72,83 @@ export default function AdminPage() {
         transition={{ duration: 0.5 }}
         sx={{ mb: 6 }}
       >
-        <Stack alignItems="center" spacing={2} sx={{ mb: 6, textAlign: 'center' }}>
-          <Dashboard sx={{ fontSize: '3rem', color: '#e94560' }} />
+        <Stack
+          alignItems="center"
+          spacing={2}
+          sx={{ mb: 6, textAlign: "center" }}
+        >
+          <Dashboard sx={{ fontSize: "3rem", color: "#8EE53F" }} />
           <Typography variant="h2" sx={{ fontWeight: 700 }}>
             Admin Dashboard
           </Typography>
-          <Typography variant="body1" color="textSecondary" sx={{ maxWidth: '600px' }}>
-            Welcome to your author portfolio management dashboard. Manage your blog posts and books from here.
+          <Typography
+            variant="body1"
+            color="textSecondary"
+            sx={{ maxWidth: "600px" }}
+          >
+            Welcome to your author portfolio management dashboard. Manage your
+            blog posts and books from here.
           </Typography>
         </Stack>
       </MotionBox>
 
-      <Stack direction={{ xs: 'column', md: 'row' }} spacing={3}>
+      <Stack direction={{ xs: "column", md: "row" }} spacing={3}>
         {adminCards.map((card, index) => {
           const IconComponent = card.icon;
           return (
             <Box key={card.href} sx={{ flex: 1 }}>
-              <Link href={card.href} style={{ textDecoration: 'none' }}>
+              <Link href={card.href} style={{ textDecoration: "none" }}>
                 <MotionCard
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.2, duration: 0.5 }}
                   whileHover={{ y: -8 }}
                   sx={{
-                    height: '100%',
-                    textDecoration: 'none',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    background: 'linear-gradient(135deg, #fff 0%, #f8f9fa 100%)',
+                    height: "100%",
+                    textDecoration: "none",
+                    cursor: "pointer",
+                    display: "flex",
+                    flexDirection: "column",
+                    background:
+                      "linear-gradient(135deg, #fff 0%, #f8f9fa 100%)",
                     borderLeft: `4px solid ${card.color}`,
                   }}
                 >
-                <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                  <IconComponent
+                  <CardContent
                     sx={{
-                      fontSize: '2.5rem',
-                      color: card.color,
-                      mb: 2,
-                    }}
-                  />
-                  <Typography variant="h5" sx={{ fontWeight: 600, mb: 1 }}>
-                    {card.title}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" sx={{ mb: 2, flexGrow: 1 }}>
-                    {card.description}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontWeight: 600,
-                      color: card.color,
-                      alignSelf: 'flex-start',
+                      flexGrow: 1,
+                      display: "flex",
+                      flexDirection: "column",
                     }}
                   >
-                    {card.stats}
-                  </Typography>
-                </CardContent>
+                    <IconComponent
+                      sx={{
+                        fontSize: "2.5rem",
+                        color: card.color,
+                        mb: 2,
+                      }}
+                    />
+                    <Typography variant="h5" sx={{ fontWeight: 600, mb: 1 }}>
+                      {card.title}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                      sx={{ mb: 2, flexGrow: 1 }}
+                    >
+                      {card.description}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        fontWeight: 600,
+                        color: card.color,
+                        alignSelf: "flex-start",
+                      }}
+                    >
+                      {card.stats}
+                    </Typography>
+                  </CardContent>
                 </MotionCard>
               </Link>
             </Box>

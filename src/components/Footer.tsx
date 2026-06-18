@@ -69,7 +69,7 @@ export function Footer() {
                     fontSize: "1.3rem",
                     display: { xs: "none", sm: "block" },
                     background:
-                      "linear-gradient(135deg, #b6b6cb 0%, #e94560 100%)",
+                      "linear-gradient(135deg, #b6b6cb 0%, #8EE53F 100%)",
                     backgroundClip: "text",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
@@ -107,7 +107,7 @@ export function Footer() {
                     fontSize: "0.95rem",
                     transition: "color 0.3s ease",
                     "&:hover": {
-                      color: "#e94560",
+                      color: "#8EE53F",
                     },
                   }}
                 >
@@ -165,7 +165,7 @@ export function Footer() {
                   color: "rgba(255,255,255,0.5)",
                   fontSize: "0.9rem",
                   transition: "color 0.3s ease",
-                  "&:hover": { color: "#e94560" },
+                  "&:hover": { color: "#8EE53F" },
                 }}
               >
                 Privacy Policy
@@ -176,7 +176,7 @@ export function Footer() {
                   color: "rgba(255,255,255,0.5)",
                   fontSize: "0.9rem",
                   transition: "color 0.3s ease",
-                  "&:hover": { color: "#e94560" },
+                  "&:hover": { color: "#8EE53F" },
                 }}
               >
                 Terms of Service

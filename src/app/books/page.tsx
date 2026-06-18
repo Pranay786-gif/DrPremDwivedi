@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import {
   Box,
   Container,
@@ -9,18 +9,18 @@ import {
   Stack,
   Chip,
   Typography,
-} from '@mui/material';
-import { BookCardPublic } from '@/components/BookCardPublic';
-import { Book } from '@/types';
-import { motion } from 'framer-motion';
-import { Search } from '@mui/icons-material';
+} from "@mui/material";
+import { BookCardPublic } from "@/components/BookCardPublic";
+import { Book } from "@/types";
+import { motion } from "framer-motion";
+import { Search } from "@mui/icons-material";
 
 const MotionBox = motion(Box);
 
 export default function BooksPage() {
   const [books, setBooks] = useState<Book[]>([]);
   const [filteredBooks, setFilteredBooks] = useState<Book[]>([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
   const [allGenres, setAllGenres] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
@@ -31,7 +31,7 @@ export default function BooksPage() {
 
   const fetchBooks = async () => {
     try {
-      const response = await fetch('/api/books');
+      const response = await fetch("/api/books");
       if (response.ok) {
         const data = await response.json();
         const booksData = data.data || [];
@@ -39,14 +39,14 @@ export default function BooksPage() {
 
         // Extract unique genres
         const genres = Array.from(
-          new Set(booksData.flatMap((book: Book) => book.genres))
+          new Set(booksData.flatMap((book: Book) => book.genres)),
         ) as string[];
         setAllGenres(genres);
 
-        filterBooks(booksData, '', null);
+        filterBooks(booksData, "", null);
       }
     } catch (error) {
-      console.error('Failed to fetch books:', error);
+      console.error("Failed to fetch books:", error);
     } finally {
       setLoading(false);
     }
@@ -55,7 +55,7 @@ export default function BooksPage() {
   const filterBooks = (
     booksToFilter: Book[],
     search: string,
-    genre: string | null
+    genre: string | null,
   ) => {
     let result = booksToFilter;
 
@@ -63,7 +63,7 @@ export default function BooksPage() {
       result = result.filter(
         (book) =>
           book.title.toLowerCase().includes(search.toLowerCase()) ||
-          book.description.toLowerCase().includes(search.toLowerCase())
+          book.description.toLowerCase().includes(search.toLowerCase()),
       );
     }
 
@@ -86,29 +86,34 @@ export default function BooksPage() {
   };
 
   return (
-    <Box sx={{ minHeight: '100vh', pt: 8, pb: 8, backgroundColor: '#f8f9fa' }}>
+    <Box sx={{ minHeight: "100vh", pt: 8, pb: 8, backgroundColor: "#f8f9fa" }}>
       <Container maxWidth="lg">
         <MotionBox
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          sx={{ mb: 6, textAlign: 'center' }}
+          sx={{ mb: 6, textAlign: "center" }}
         >
           <Typography
             variant="h2"
             sx={{
               fontWeight: 700,
               mb: 2,
-              background: 'linear-gradient(135deg, #1a1a2e 0%, #e94560 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
+              background: "linear-gradient(135deg, #1a1a2e 0%, #8EE53F 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
             }}
           >
             My Books
           </Typography>
-          <Typography variant="h6" color="textSecondary" sx={{ maxWidth: '600px', mx: 'auto' }}>
-            Discover my published works and get your copies from your favorite retailer
+          <Typography
+            variant="h6"
+            color="textSecondary"
+            sx={{ maxWidth: "600px", mx: "auto" }}
+          >
+            Discover my published works and get your copies from your favorite
+            retailer
           </Typography>
         </MotionBox>
 
@@ -124,13 +129,13 @@ export default function BooksPage() {
             value={searchTerm}
             onChange={(e) => handleSearch(e.target.value)}
             InputProps={{
-              startAdornment: <Search sx={{ mr: 2, color: '#e94560' }} />,
+              startAdornment: <Search sx={{ mr: 2, color: "#8EE53F" }} />,
             }}
             sx={{
-              '& .MuiOutlinedInput-root': {
-                borderRadius: '12px',
-                backgroundColor: 'white',
-                fontSize: '1.1rem',
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "12px",
+                backgroundColor: "white",
+                fontSize: "1.1rem",
               },
             }}
           />
@@ -152,11 +157,11 @@ export default function BooksPage() {
                   key={genre}
                   label={genre}
                   onClick={() => handleGenreSelect(genre)}
-                  color={selectedGenre === genre ? 'primary' : 'default'}
-                  variant={selectedGenre === genre ? 'filled' : 'outlined'}
+                  color={selectedGenre === genre ? "primary" : "default"}
+                  variant={selectedGenre === genre ? "filled" : "outlined"}
                   sx={{
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
                   }}
                 />
               ))}
@@ -165,17 +170,27 @@ export default function BooksPage() {
         )}
 
         {loading ? (
-          <Box sx={{ textAlign: 'center', py: 6 }}>
+          <Box sx={{ textAlign: "center", py: 6 }}>
             <Typography>Loading books...</Typography>
           </Box>
         ) : filteredBooks.length === 0 ? (
-          <Box sx={{ textAlign: 'center', py: 6 }}>
+          <Box sx={{ textAlign: "center", py: 6 }}>
             <Typography variant="h6" color="textSecondary">
               No books found. Try adjusting your search filters.
             </Typography>
           </Box>
         ) : (
-          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr' }, gap: 3 }}>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "1fr 1fr",
+                md: "1fr 1fr 1fr",
+              },
+              gap: 3,
+            }}
+          >
             {filteredBooks.map((book, index) => (
               <BookCardPublic key={book.id} book={book} index={index} />
             ))}

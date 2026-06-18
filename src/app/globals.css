@@ -11,7 +11,12 @@ html {
 body {
   background-color: #ffffff;
   color: #1a1a2e;
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family:
+    "Poppins",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   line-height: 1.6;
 }
 
@@ -55,11 +60,10 @@ img {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e94560;
+  background: #8ee53f;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #d63857;
+  background: #8ee53f;
 }
-

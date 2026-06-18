@@ -80,10 +80,9 @@ export default function HomePage() {
           minHeight: "100vh",
           display: "flex",
           alignItems: "center",
-          background:
-            "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
+          // background: "white",
           backgroundImage:
-            "url(https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
+            "url(https://images.unsplash.com/photo-1621944190272-ec775aad58d0?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
@@ -99,8 +98,6 @@ export default function HomePage() {
             left: 0,
             right: 0,
             bottom: 0,
-            background:
-              "linear-gradient(135deg, rgba(26, 26, 46, 0.85) 0%, rgba(22, 33, 62, 0.85) 50%, rgba(15, 52, 96, 0.85) 100%)",
             zIndex: 1,
           },
         }}
@@ -159,7 +156,7 @@ export default function HomePage() {
               position: "absolute",
               width: "8px",
               height: "8px",
-              background: "#e94560",
+              background: "#8EE53F",
               borderRadius: "50%",
               top: `${20 + i * 15}%`,
               left: `${10 + i * 15}%`,
@@ -183,10 +180,10 @@ export default function HomePage() {
                   <Typography
                     variant="h6"
                     sx={{
-                      color: "#e94560",
+                      color: "#654321",
                       fontWeight: 600,
                       mb: 2,
-                      fontSize: "1.2rem",
+                      fontSize: "2rem",
                     }}
                   >
                     Welcome to My Digital Space
@@ -200,9 +197,8 @@ export default function HomePage() {
                     fontWeight: 800,
                     mb: 3,
                     lineHeight: 1.1,
-                    textShadow: "0 2px 10px rgba(0,0,0,0.3)",
-                    background:
-                      "linear-gradient(45deg, #fff 0%, #e94560 50%, #ff6b7a 100%)",
+                    textShadow: "0 2px 10px rgba(186, 186, 186, 0.3)",
+                    background: "#8EE53F",
                     backgroundSize: "200% 200%",
                     backgroundClip: "text",
                     WebkitBackgroundClip: "text",
@@ -224,12 +220,12 @@ export default function HomePage() {
                   <Typography
                     variant="h5"
                     sx={{
-                      fontSize: { xs: "1.1rem", md: "1.4rem" },
+                      fontSize: { xs: "2rem", md: "2rem" },
                       fontWeight: 300,
                       mb: 4,
                       maxWidth: "600px",
                       lineHeight: 1.6,
-                      color: "rgba(255,255,255,0.9)",
+                      color: "#654321",
                     }}
                   >
                     Memoirs, Reflections and Stories of Belonging
@@ -256,18 +252,17 @@ export default function HomePage() {
                     size="large"
                     sx={{
                       width: "100%",
-                      background:
-                        "linear-gradient(135deg, #e94560 0%, #ff6b7a 100%)",
+                      background: "#8EE53F",
                       color: "white",
                       fontSize: "1.1rem",
                       py: 1.5,
                       px: 4,
                       borderRadius: "8px",
-                      boxShadow: "0 8px 24px rgba(233, 69, 96, 0.4)",
+                      boxShadow: "0 8px 24px rgba(197, 245, 180, 0.4)",
                       position: "relative",
                       overflow: "hidden",
                       "&:hover": {
-                        boxShadow: "0 12px 32px rgba(233, 69, 96, 0.6)",
+                        boxShadow: "0 12px 32px rgba(197, 245, 180, 0.4)",
                         transform: "translateY(-2px)",
                       },
                       "&::before": {
@@ -307,18 +302,18 @@ export default function HomePage() {
                     size="large"
                     sx={{
                       width: "100%",
-                      borderColor: "white",
-                      color: "white",
+                      borderColor: "#8EE53F",
+                      color: "#8EE53F",
                       fontSize: "1.1rem",
                       py: 1.5,
                       px: 4,
                       borderRadius: "8px",
                       transition: "all 0.3s ease",
                       "&:hover": {
-                        backgroundColor: "rgba(255,255,255,0.1)",
-                        borderColor: "#e94560",
-                        color: "#e94560",
-                        boxShadow: "0 0 20px rgba(233, 69, 96, 0.4)",
+                        backgroundColor: "rgba(197, 245, 180, 0.4)",
+                        borderColor: "#8EE53F",
+                        color: "#8EE53F",
+                        boxShadow: "0 0 20px rgba(197, 245, 180, 0.4)",
                       },
                     }}
                     endIcon={<ArrowRight />}
@@ -433,12 +428,11 @@ export default function HomePage() {
                     color: "#555",
                   }}
                 >
-                  Dr Prem Dwivedi’s journey began in a remote village in Uttar
-                  Pradesh, India, where education grew through curiosity,
-                  discipline, and belief. From these humble beginnings, he built
-                  an international scientific career across New Zealand and
-                  Australia, contributing to research in gene regulation and
-                  human health.
+                  Dr Prem Dwivedi is an Australian-based biomedical scientist,
+                  storyteller, and immigrant whose remarkable journey from a
+                  small village in Uttar Pradesh, India, to an accomplished
+                  scientific career in Australia has inspired readers across
+                  continents.
                 </Typography>
 
                 <Typography
@@ -450,17 +444,33 @@ export default function HomePage() {
                     color: "#555",
                   }}
                 >
-                  Beyond science, Prem Dwivedi is also a writer shaped by
-                  memory, migration, and lived experience. His storytelling
-                  developed through the Burnside Writing Group (BRG) in
-                  Australia, and his first nonfiction stories appeared in the
-                  2025 anthology{" "}
+                  Over a career spanning more than three decades, Dr Dwivedi has
+                  made significant contributions to biomedical research in New
+                  Zealand and Australia, particularly in the fields of gene
+                  regulation, vitamin D biology, bone health, osteoporosis, and
+                  cancer. His work has been published internationally, and he
+                  has supervised postgraduate and PhD students while
+                  collaborating with leading researchers around the world.
+                </Typography>
+
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: "1.1rem",
+                    lineHeight: 1.8,
+                    mb: 3,
+                    color: "#555",
+                  }}
+                >
+                  Alongside his scientific achievements, Dr Dwivedi has
+                  developed a passion for storytelling rooted in memory,
+                  migration, and lived experience. His writing journey was
+                  nurtured through the Burnside Writers Group in Adelaide, and
+                  his first nonfiction stories appeared in the 2025 anthology
                   <Box component="span" sx={{ fontWeight: 700 }}>
-                    Tall Tales & True
+                    Tall Tales & True.
                   </Box>
-                  .
                 </Typography>
-
                 <Typography
                   variant="body1"
                   sx={{
@@ -470,14 +480,18 @@ export default function HomePage() {
                     color: "#555",
                   }}
                 >
-                  His writing explores identity, belonging, resilience, cultural
-                  transition, and the enduring connection between people and
-                  their roots. His autobiography,{" "}
+                  In 2026, his autobiography, The Unlikely Indian Migrant,
+                  became a #1{" "}
                   <Box component="span" sx={{ fontWeight: 700 }}>
-                    The Unlikely Indian Migrant,
+                    {" "}
+                    Amazon Bestseller in Australia.
                   </Box>{" "}
-                  is a personal story of family courage, migration, and the
-                  search for belonging across continents.
+                  The book tells the inspiring story of a village boy who
+                  overcame social, educational, and cultural barriers to build a
+                  successful life in New Zealand and Australia. It is a moving
+                  account of resilience, family sacrifice, migration, and the
+                  search for belonging—an experience shared by many migrants who
+                  have helped shape modern Australia.
                 </Typography>
                 <Typography
                   variant="body1"
@@ -488,7 +502,10 @@ export default function HomePage() {
                     color: "#555",
                   }}
                 >
-                  Thank you for visiting and sharing this journey.
+                  Through both science and storytelling, Dr Dwivedi explores
+                  universal themes of identity, perseverance, cultural
+                  transition, and the enduring connection between people and
+                  their roots. Thank you for visiting and sharing this journey.
                 </Typography>
               </Box>
             </MotionBox>
@@ -532,8 +549,7 @@ export default function HomePage() {
                 href="/blogs"
                 variant="contained"
                 sx={{
-                  background:
-                    "linear-gradient(135deg, #e94560 0%, #ff6b7a 100%)",
+                  background: "#8EE53F",
                   color: "white",
                   px: 4,
                   py: 1.5,
@@ -620,7 +636,7 @@ export default function HomePage() {
                     <IconComponent
                       sx={{
                         fontSize: "3rem",
-                        color: "#e94560",
+                        color: "#8EE53F",
                         mb: 2,
                       }}
                     />
@@ -819,8 +835,7 @@ export default function HomePage() {
                 variant="contained"
                 size="large"
                 sx={{
-                  background:
-                    "linear-gradient(135deg, #e94560 0%, #ff6b7a 100%)",
+                  background: "#8EE53F",
                   fontSize: "1rem",
                   py: 1.2,
                   px: 3,

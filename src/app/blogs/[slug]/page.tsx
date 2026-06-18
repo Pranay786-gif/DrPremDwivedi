@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import {
   Box,
   Container,
@@ -9,13 +9,13 @@ import {
   Chip,
   Button,
   Divider,
-} from '@mui/material';
-import Link from 'next/link';
-import { BlogPost } from '@/types';
-import { motion } from 'framer-motion';
-import { formatDate } from '@/lib/utils';
-import { ArrowBack } from '@mui/icons-material';
-import { marked } from 'marked';
+} from "@mui/material";
+import Link from "next/link";
+import { BlogPost } from "@/types";
+import { motion } from "framer-motion";
+import { formatDate } from "@/lib/utils";
+import { ArrowBack } from "@mui/icons-material";
+import { marked } from "marked";
 
 const MotionBox = motion(Box);
 
@@ -24,9 +24,9 @@ interface BlogPageProps {
 }
 
 export default function BlogPage({ params }: BlogPageProps) {
-  const [slug, setSlug] = useState<string>('');
+  const [slug, setSlug] = useState<string>("");
   const [blog, setBlog] = useState<BlogPost | null>(null);
-  const [htmlContent, setHtmlContent] = useState('');
+  const [htmlContent, setHtmlContent] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function BlogPage({ params }: BlogPageProps) {
         setHtmlContent(html);
       }
     } catch (error) {
-      console.error('Failed to fetch blog:', error);
+      console.error("Failed to fetch blog:", error);
     } finally {
       setLoading(false);
     }
@@ -61,7 +61,14 @@ export default function BlogPage({ params }: BlogPageProps) {
 
   if (loading) {
     return (
-      <Box sx={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <Box
+        sx={{
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <Typography>Loading article...</Typography>
       </Box>
     );
@@ -69,7 +76,7 @@ export default function BlogPage({ params }: BlogPageProps) {
 
   if (!blog) {
     return (
-      <Box sx={{ minHeight: '100vh', pt: 8, pb: 8 }}>
+      <Box sx={{ minHeight: "100vh", pt: 8, pb: 8 }}>
         <Container maxWidth="md">
           <Button
             component={Link}
@@ -86,7 +93,7 @@ export default function BlogPage({ params }: BlogPageProps) {
   }
 
   return (
-    <Box sx={{ minHeight: '100vh', pt: 8, pb: 8, backgroundColor: '#f8f9fa' }}>
+    <Box sx={{ minHeight: "100vh", pt: 8, pb: 8, backgroundColor: "#f8f9fa" }}>
       <Container maxWidth="md">
         <Button
           component={Link}
@@ -102,7 +109,7 @@ export default function BlogPage({ params }: BlogPageProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Box sx={{ backgroundColor: 'white', borderRadius: '12px', p: 6 }}>
+          <Box sx={{ backgroundColor: "white", borderRadius: "12px", p: 6 }}>
             <Typography
               variant="h2"
               sx={{
@@ -114,7 +121,12 @@ export default function BlogPage({ params }: BlogPageProps) {
               {blog.title}
             </Typography>
 
-            <Stack direction="row" spacing={1} flexWrap="wrap" sx={{ mb: 4, gap: 1 }}>
+            <Stack
+              direction="row"
+              spacing={1}
+              flexWrap="wrap"
+              sx={{ mb: 4, gap: 1 }}
+            >
               {blog.tags.map((tag) => (
                 <Chip key={tag} label={tag} variant="outlined" size="small" />
               ))}
@@ -135,43 +147,48 @@ export default function BlogPage({ params }: BlogPageProps) {
 
             <Box
               sx={{
-                '& h1': { fontSize: '2.5rem', fontWeight: 700, mt: 3, mb: 2 },
-                '& h2': { fontSize: '2rem', fontWeight: 700, mt: 3, mb: 2 },
-                '& h3': { fontSize: '1.5rem', fontWeight: 600, mt: 2, mb: 1.5 },
-                '& p': { fontSize: '1.1rem', lineHeight: 1.8, mb: 2, color: '#555' },
-                '& strong': { fontWeight: 600 },
-                '& em': { fontStyle: 'italic' },
-                '& ul': { mb: 2, pl: 3 },
-                '& ol': { mb: 2, pl: 3 },
-                '& li': { mb: 1, lineHeight: 1.7 },
-                '& code': {
-                  backgroundColor: '#f5f5f5',
-                  padding: '2px 6px',
-                  borderRadius: '4px',
-                  fontFamily: 'monospace',
+                "& h1": { fontSize: "2.5rem", fontWeight: 700, mt: 3, mb: 2 },
+                "& h2": { fontSize: "2rem", fontWeight: 700, mt: 3, mb: 2 },
+                "& h3": { fontSize: "1.5rem", fontWeight: 600, mt: 2, mb: 1.5 },
+                "& p": {
+                  fontSize: "1.1rem",
+                  lineHeight: 1.8,
+                  mb: 2,
+                  color: "#555",
                 },
-                '& pre': {
-                  backgroundColor: '#1a1a2e',
-                  color: '#fff',
-                  padding: '1.5rem',
-                  borderRadius: '8px',
-                  overflow: 'auto',
+                "& strong": { fontWeight: 600 },
+                "& em": { fontStyle: "italic" },
+                "& ul": { mb: 2, pl: 3 },
+                "& ol": { mb: 2, pl: 3 },
+                "& li": { mb: 1, lineHeight: 1.7 },
+                "& code": {
+                  backgroundColor: "#f5f5f5",
+                  padding: "2px 6px",
+                  borderRadius: "4px",
+                  fontFamily: "monospace",
+                },
+                "& pre": {
+                  backgroundColor: "#1a1a2e",
+                  color: "#fff",
+                  padding: "1.5rem",
+                  borderRadius: "8px",
+                  overflow: "auto",
                   mb: 2,
                 },
-                '& blockquote': {
-                  borderLeft: '4px solid #e94560',
-                  paddingLeft: '1.5rem',
+                "& blockquote": {
+                  borderLeft: "4px solid #8EE53F",
+                  paddingLeft: "1.5rem",
                   marginLeft: 0,
                   marginRight: 0,
                   my: 2,
-                  fontStyle: 'italic',
-                  color: '#666',
+                  fontStyle: "italic",
+                  color: "#666",
                 },
-                '& a': {
-                  color: '#e94560',
-                  textDecoration: 'none',
-                  '&:hover': {
-                    textDecoration: 'underline',
+                "& a": {
+                  color: "#8EE53F",
+                  textDecoration: "none",
+                  "&:hover": {
+                    textDecoration: "underline",
                   },
                 },
               }}

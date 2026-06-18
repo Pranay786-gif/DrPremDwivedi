@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import {
   Box,
   Container,
@@ -9,18 +9,18 @@ import {
   Stack,
   Chip,
   Typography,
-} from '@mui/material';
-import { BlogCard } from '@/components/BlogCard';
-import { BlogPost } from '@/types';
-import { motion } from 'framer-motion';
-import { Search } from '@mui/icons-material';
+} from "@mui/material";
+import { BlogCard } from "@/components/BlogCard";
+import { BlogPost } from "@/types";
+import { motion } from "framer-motion";
+import { Search } from "@mui/icons-material";
 
 const MotionBox = motion(Box);
 
 export default function BlogsPage() {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
   const [filteredBlogs, setFilteredBlogs] = useState<BlogPost[]>([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [allTags, setAllTags] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
@@ -31,7 +31,7 @@ export default function BlogsPage() {
 
   const fetchBlogs = async () => {
     try {
-      const response = await fetch('/api/blogs');
+      const response = await fetch("/api/blogs");
       if (response.ok) {
         const data = await response.json();
         const blogsData = data.data || [];
@@ -39,14 +39,14 @@ export default function BlogsPage() {
 
         // Extract unique tags
         const tags = Array.from(
-          new Set(blogsData.flatMap((blog: BlogPost) => blog.tags))
+          new Set(blogsData.flatMap((blog: BlogPost) => blog.tags)),
         ) as string[];
         setAllTags(tags);
 
-        filterBlogs(blogsData, '', null);
+        filterBlogs(blogsData, "", null);
       }
     } catch (error) {
-      console.error('Failed to fetch blogs:', error);
+      console.error("Failed to fetch blogs:", error);
     } finally {
       setLoading(false);
     }
@@ -55,7 +55,7 @@ export default function BlogsPage() {
   const filterBlogs = (
     blogsToFilter: BlogPost[],
     search: string,
-    tag: string | null
+    tag: string | null,
   ) => {
     let result = blogsToFilter;
 
@@ -63,7 +63,7 @@ export default function BlogsPage() {
       result = result.filter(
         (blog) =>
           blog.title.toLowerCase().includes(search.toLowerCase()) ||
-          blog.excerpt.toLowerCase().includes(search.toLowerCase())
+          blog.excerpt.toLowerCase().includes(search.toLowerCase()),
       );
     }
 
@@ -86,29 +86,34 @@ export default function BlogsPage() {
   };
 
   return (
-    <Box sx={{ minHeight: '100vh', pt: 8, pb: 8, backgroundColor: '#f8f9fa' }}>
+    <Box sx={{ minHeight: "100vh", pt: 8, pb: 8, backgroundColor: "#f8f9fa" }}>
       <Container maxWidth="lg">
         <MotionBox
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          sx={{ mb: 6, textAlign: 'center' }}
+          sx={{ mb: 6, textAlign: "center" }}
         >
           <Typography
             variant="h2"
             sx={{
               fontWeight: 700,
               mb: 2,
-              background: 'linear-gradient(135deg, #1a1a2e 0%, #e94560 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
+              background: "linear-gradient(135deg, #1a1a2e 0%, #8EE53F 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
             }}
           >
             Blog Articles
           </Typography>
-          <Typography variant="h6" color="textSecondary" sx={{ maxWidth: '600px', mx: 'auto' }}>
-            Explore my latest thoughts, insights, and stories about writing and creativity
+          <Typography
+            variant="h6"
+            color="textSecondary"
+            sx={{ maxWidth: "600px", mx: "auto" }}
+          >
+            Explore my latest thoughts, insights, and stories about writing and
+            creativity
           </Typography>
         </MotionBox>
 
@@ -124,13 +129,13 @@ export default function BlogsPage() {
             value={searchTerm}
             onChange={(e) => handleSearch(e.target.value)}
             InputProps={{
-              startAdornment: <Search sx={{ mr: 2, color: '#e94560' }} />,
+              startAdornment: <Search sx={{ mr: 2, color: "#8EE53F" }} />,
             }}
             sx={{
-              '& .MuiOutlinedInput-root': {
-                borderRadius: '12px',
-                backgroundColor: 'white',
-                fontSize: '1.1rem',
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "12px",
+                backgroundColor: "white",
+                fontSize: "1.1rem",
               },
             }}
           />
@@ -152,11 +157,11 @@ export default function BlogsPage() {
                   key={tag}
                   label={tag}
                   onClick={() => handleTagSelect(tag)}
-                  color={selectedTag === tag ? 'primary' : 'default'}
-                  variant={selectedTag === tag ? 'filled' : 'outlined'}
+                  color={selectedTag === tag ? "primary" : "default"}
+                  variant={selectedTag === tag ? "filled" : "outlined"}
                   sx={{
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
                   }}
                 />
               ))}
@@ -165,17 +170,27 @@ export default function BlogsPage() {
         )}
 
         {loading ? (
-          <Box sx={{ textAlign: 'center', py: 6 }}>
+          <Box sx={{ textAlign: "center", py: 6 }}>
             <Typography>Loading articles...</Typography>
           </Box>
         ) : filteredBlogs.length === 0 ? (
-          <Box sx={{ textAlign: 'center', py: 6 }}>
+          <Box sx={{ textAlign: "center", py: 6 }}>
             <Typography variant="h6" color="textSecondary">
               No articles found. Try adjusting your search filters.
             </Typography>
           </Box>
         ) : (
-          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr' }, gap: 3 }}>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "1fr 1fr",
+                md: "1fr 1fr 1fr",
+              },
+              gap: 3,
+            }}
+          >
             {filteredBlogs.map((blog, index) => (
               <BlogCard key={blog.id} blog={blog} index={index} />
             ))}
