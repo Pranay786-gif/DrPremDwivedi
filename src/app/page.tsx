@@ -184,6 +184,7 @@ export default function HomePage() {
                       fontWeight: 600,
                       mb: 2,
                       fontSize: "2rem",
+                      lineHeight: 1.2,
                     }}
                   >
                     Welcome to My Digital Space
@@ -224,7 +225,7 @@ export default function HomePage() {
                       fontWeight: 300,
                       mb: 4,
                       maxWidth: "600px",
-                      lineHeight: 1.6,
+                      lineHeight: 1.2,
                       color: "#654321",
                     }}
                   >
