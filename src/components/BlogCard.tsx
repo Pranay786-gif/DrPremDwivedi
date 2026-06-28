@@ -42,7 +42,7 @@ export function BlogCard({ blog, index = 0 }: BlogCardProps) {
       >
         <Box
           sx={{
-            background: "linear-gradient(135deg, #8EE53F 0%, #ff6b7a 100%)",
+            background: "linear-gradient(135deg, #2F6F4F 0%, #ff6b7a 100%)",
             height: "4px",
           }}
         />
@@ -105,7 +105,7 @@ export function BlogCard({ blog, index = 0 }: BlogCardProps) {
             </Stack>
             <ArrowRight
               sx={{
-                color: "#8EE53F",
+                color: "#2F6F4F",
                 transition: "transform 0.3s ease",
               }}
             />

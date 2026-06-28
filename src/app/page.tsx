@@ -73,14 +73,13 @@ export default function HomePage() {
   ];
 
   return (
-    <Box sx={{ width: "100%", overflow: "hidden" }}>
+    <Box sx={{ width: "100%", overflow: "hidden", backgroundColor: "#fcfbfc" }}>
       {/* Hero Section */}
       <Box
         sx={{
           minHeight: "100vh",
           display: "flex",
           alignItems: "center",
-          // background: "white",
           backgroundImage:
             "url(https://images.unsplash.com/photo-1621944190272-ec775aad58d0?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
           backgroundSize: "cover",
@@ -89,7 +88,7 @@ export default function HomePage() {
           color: "white",
           position: "relative",
           overflow: "hidden",
-          pt: 8,
+          pt: { xs: 12, md: 8 },
           pb: 8,
           "&::before": {
             content: '""',
@@ -99,92 +98,116 @@ export default function HomePage() {
             right: 0,
             bottom: 0,
             zIndex: 1,
+            background:
+              "linear-gradient(135deg, rgba(20, 30, 26, 0.85) 0%, rgba(35, 25, 20, 0.75) 100%)",
           },
         }}
       >
-        {/* Animated Background Elements */}
+        {/* Modern Morphing Abstract Background Blurs */}
         <motion.div
-          animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          animate={{
+            y: [0, -30, 0],
+            x: [0, 20, 0],
+            borderRadius: [
+              "42% 58% 70% 30% / 45% 45% 55% 55%",
+              "70% 30% 52% 48% / 60% 40% 60% 40%",
+              "42% 58% 70% 30% / 45% 45% 55% 55%",
+            ],
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
           style={{
             position: "absolute",
             top: "10%",
             right: "5%",
-            width: "300px",
-            height: "300px",
-            background: "rgba(233, 69, 96, 0.1)",
-            borderRadius: "50%",
-            filter: "blur(40px)",
+            width: "400px",
+            height: "400px",
+            background: "rgba(47, 111, 79, 0.25)",
+            filter: "blur(60px)",
+            zIndex: 1,
           }}
         />
         <motion.div
-          animate={{ y: [0, 20, 0], x: [0, -10, 0] }}
+          animate={{
+            y: [0, 40, 0],
+            x: [0, -20, 0],
+            borderRadius: [
+              "50% 50% 30% 70% / 50% 60% 40% 50%",
+              "30% 70% 70% 30% / 50% 30% 70% 50%",
+              "50% 50% 30% 70% / 50% 60% 40% 50%",
+            ],
+          }}
           transition={{
-            duration: 8,
+            duration: 14,
             repeat: Infinity,
             ease: "easeInOut",
             delay: 1,
           }}
           style={{
             position: "absolute",
-            bottom: "10%",
-            left: "5%",
-            width: "250px",
-            height: "250px",
-            background: "rgba(255, 107, 122, 0.1)",
-            borderRadius: "50%",
-            filter: "blur(40px)",
+            bottom: "5%",
+            left: "2%",
+            width: "350px",
+            height: "350px",
+            background: "rgba(197, 245, 180, 0.15)",
+            filter: "blur(50px)",
+            zIndex: 1,
           }}
         />
 
-        {/* Floating particles effect */}
+        {/* Floating elements */}
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={`particle-${i}`}
             animate={{
-              y: [0, -100, 0],
-              x: [0, Math.sin(i) * 50, 0],
-              opacity: [0, 0.5, 0],
+              y: [0, -120, 0],
+              x: [0, Math.sin(i) * 60, 0],
+              opacity: [0, 0.4, 0],
             }}
             transition={{
-              duration: 5 + i * 0.5,
+              duration: 6 + i * 1,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: i * 0.5,
+              delay: i * 0.7,
             }}
             style={{
               position: "absolute",
-              width: "8px",
-              height: "8px",
-              background: "#8EE53F",
+              width: "6px",
+              height: "6px",
+              background: "#c5f5b4",
               borderRadius: "50%",
-              top: `${20 + i * 15}%`,
-              left: `${10 + i * 15}%`,
+              top: `${25 + i * 12}%`,
+              left: `${15 + i * 15}%`,
+              zIndex: 1,
             }}
           />
         ))}
 
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
           <MotionBox
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
           >
-            <Stack spacing={4} alignItems="flex-start">
+            <Stack
+              spacing={4}
+              alignItems="flex-start"
+              sx={{ maxWidth: "800px" }}
+            >
               <Box>
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
                 >
                   <Typography
                     variant="h6"
                     sx={{
-                      color: "#654321",
+                      color: "#c5f5b4",
                       fontWeight: 600,
-                      mb: 2,
-                      fontSize: "2rem",
-                      lineHeight: 1.2,
+                      mb: 1.5,
+                      fontSize: { xs: "1.25rem", md: "1.5rem" },
+                      letterSpacing: "0.1rem",
+                      textTransform: "uppercase",
                     }}
                   >
                     Welcome to My Digital Space
@@ -194,20 +217,13 @@ export default function HomePage() {
                 <Typography
                   variant="h1"
                   sx={{
-                    fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem" },
+                    fontSize: { xs: "2.8rem", sm: "4rem", md: "5rem" },
                     fontWeight: 800,
                     mb: 3,
-                    lineHeight: 1.1,
-                    textShadow: "0 2px 10px rgba(186, 186, 186, 0.3)",
-                    background: "#8EE53F",
-                    backgroundSize: "200% 200%",
-                    backgroundClip: "text",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    animation: "gradientShift 4s ease infinite",
-                  }}
-                  style={{
-                    animation: "gradientShift 4s ease infinite",
+                    lineHeight: 1.15,
+                    letterSpacing: "-0.02em",
+                    color: "#ffffff",
+                    textShadow: "0 4px 20px rgba(0,0,0,0.4)",
                   }}
                 >
                   The Author's Memory Lantern
@@ -216,17 +232,17 @@ export default function HomePage() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
                 >
                   <Typography
                     variant="h5"
                     sx={{
-                      fontSize: { xs: "2rem", md: "2rem" },
+                      fontSize: { xs: "1.35rem", md: "1.75rem" },
                       fontWeight: 300,
-                      mb: 4,
-                      maxWidth: "600px",
-                      lineHeight: 1.2,
-                      color: "#654321",
+                      mb: 5,
+                      maxWidth: "650px",
+                      lineHeight: 1.4,
+                      color: "rgba(255, 255, 255, 0.85)",
                     }}
                   >
                     Memoirs, Reflections and Stories of Belonging
@@ -236,15 +252,13 @@ export default function HomePage() {
 
               <Stack
                 direction={{ xs: "column", sm: "row" }}
-                spacing={2}
+                spacing={2.5}
                 sx={{ width: "100%", maxWidth: "500px" }}
               >
                 <motion.div
                   style={{ width: "100%", flex: 1 }}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <Button
                     component={Link}
@@ -253,34 +267,19 @@ export default function HomePage() {
                     size="large"
                     sx={{
                       width: "100%",
-                      background: "#8EE53F",
+                      background: "#2F6F4F",
                       color: "white",
-                      fontSize: "1.1rem",
-                      py: 1.5,
+                      fontSize: "1rem",
+                      fontWeight: 600,
+                      py: 2,
                       px: 4,
-                      borderRadius: "8px",
-                      boxShadow: "0 8px 24px rgba(197, 245, 180, 0.4)",
-                      position: "relative",
-                      overflow: "hidden",
+                      borderRadius: "12px",
+                      boxShadow: "0 8px 25px rgba(47, 111, 79, 0.4)",
+                      textTransform: "none",
+                      transition: "all 0.3s ease",
                       "&:hover": {
-                        boxShadow: "0 12px 32px rgba(197, 245, 180, 0.4)",
-                        transform: "translateY(-2px)",
-                      },
-                      "&::before": {
-                        content: '""',
-                        position: "absolute",
-                        top: "50%",
-                        left: "50%",
-                        width: "0",
-                        height: "0",
-                        background: "rgba(255,255,255,0.2)",
-                        borderRadius: "50%",
-                        transform: "translate(-50%, -50%)",
-                        transition: "width 0.6s, height 0.6s",
-                      },
-                      "&:active::before": {
-                        width: "300px",
-                        height: "300px",
+                        background: "#23533b",
+                        boxShadow: "0 12px 30px rgba(47, 111, 79, 0.5)",
                       },
                     }}
                     endIcon={<ArrowRight />}
@@ -291,10 +290,8 @@ export default function HomePage() {
 
                 <motion.div
                   style={{ width: "100%", flex: 1 }}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <Button
                     component={Link}
@@ -303,18 +300,20 @@ export default function HomePage() {
                     size="large"
                     sx={{
                       width: "100%",
-                      borderColor: "#8EE53F",
-                      color: "#8EE53F",
-                      fontSize: "1.1rem",
-                      py: 1.5,
+                      borderColor: "rgba(255, 255, 255, 0.4)",
+                      color: "white",
+                      fontSize: "1rem",
+                      fontWeight: 600,
+                      py: 2,
                       px: 4,
-                      borderRadius: "8px",
+                      borderRadius: "12px",
+                      textTransform: "none",
+                      backdropFilter: "blur(4px)",
                       transition: "all 0.3s ease",
                       "&:hover": {
-                        backgroundColor: "rgba(197, 245, 180, 0.4)",
-                        borderColor: "#8EE53F",
-                        color: "#8EE53F",
-                        boxShadow: "0 0 20px rgba(197, 245, 180, 0.4)",
+                        backgroundColor: "rgba(255, 255, 255, 0.1)",
+                        borderColor: "white",
+                        boxShadow: "0 0 25px rgba(255, 255, 255, 0.2)",
                       },
                     }}
                     endIcon={<ArrowRight />}
@@ -329,23 +328,33 @@ export default function HomePage() {
       </Box>
 
       {/* Author Bio Section */}
-      <Box
-        sx={{ py: 8, backgroundColor: "white", borderTop: "1px solid #e0e0e0" }}
-      >
+      <Box sx={{ py: 12, backgroundColor: "#ffffff", position: "relative" }}>
         <Container maxWidth="lg">
           <MotionBox
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            sx={{ textAlign: "center", mb: 6 }}
+            sx={{ textAlign: "center", mb: 8 }}
           >
             <Typography
               variant="h3"
               sx={{
-                fontWeight: 700,
-                mb: 3,
-                color: "#1a1a2e",
+                fontWeight: 800,
+                color: "#141e1a",
+                letterSpacing: "-0.01em",
+                position: "relative",
+                display: "inline-block",
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  bottom: -12,
+                  left: "25%",
+                  width: "50%",
+                  height: "4px",
+                  backgroundColor: "#2F6F4F",
+                  borderRadius: "2px",
+                },
               }}
             >
               About Dr. Prem Dwivedi
@@ -355,35 +364,38 @@ export default function HomePage() {
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
-              gap: 4,
-              alignItems: "center",
+              gridTemplateColumns: { xs: "1fr", md: "45% 55%" },
+              gap: 6,
+              alignItems: "start",
             }}
           >
             <MotionBox
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              height={"100%"}
+              whileHover={{ y: -8 }}
+              sx={{
+                height: { xs: "400px", sm: "500px", md: "580px" },
+                position: "sticky",
+                top: "40px",
+              }}
             >
               <Box
                 sx={{
                   position: "relative",
-                  borderRadius: "16px",
+                  borderRadius: "24px",
                   overflow: "hidden",
-                  boxShadow: "0 10px 40px rgba(0,0,0,0.15)",
+                  boxShadow: "0 20px 50px rgba(20,30,26,0.12)",
                   height: "100%",
-                  background:
-                    "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)",
+                  border: "1px solid rgba(0,0,0,0.04)",
                 }}
               >
                 <Image
                   src="/author-photo.png"
                   alt="Dr. Prem Dwivedi - Author"
                   fill
-                  style={{ objectFit: "fill" }}
+                  style={{ objectFit: "cover" }}
                   unoptimized
                 />
                 <Box
@@ -393,19 +405,23 @@ export default function HomePage() {
                     left: 0,
                     right: 0,
                     background:
-                      "linear-gradient(180deg, transparent 0%, rgba(26, 26, 46, 0.95) 50%, rgba(0, 0, 0, 0.98) 100%)",
-                    padding: 3,
+                      "linear-gradient(180deg, transparent 0%, rgba(20, 30, 26, 0.85) 60%, rgba(10, 15, 13, 0.98) 100%)",
+                    padding: 4,
                   }}
                 >
                   <Typography
-                    variant="h6"
-                    sx={{ fontWeight: 700, color: "white" }}
+                    variant="h5"
+                    sx={{ fontWeight: 700, color: "white", mb: 0.5 }}
                   >
                     Dr. Prem Dwivedi
                   </Typography>
                   <Typography
-                    variant="body2"
-                    sx={{ color: "rgba(255, 255, 255, 0.95)" }}
+                    variant="body1"
+                    sx={{
+                      color: "#c5f5b4",
+                      fontWeight: 500,
+                      letterSpacing: "0.05em",
+                    }}
                   >
                     Scientist & Storyteller
                   </Typography>
@@ -414,19 +430,18 @@ export default function HomePage() {
             </MotionBox>
 
             <MotionBox
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.7 }}
               viewport={{ once: true }}
             >
-              <Box>
+              <Stack spacing={3}>
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: "1.1rem",
-                    lineHeight: 1.8,
-                    mb: 3,
-                    color: "#555",
+                    fontSize: "1.125rem",
+                    lineHeight: 1.85,
+                    color: "#3A4742",
                   }}
                 >
                   Dr Prem Dwivedi is an Australian-based biomedical scientist,
@@ -439,10 +454,9 @@ export default function HomePage() {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: "1.1rem",
-                    lineHeight: 1.8,
-                    mb: 3,
-                    color: "#555",
+                    fontSize: "1.125rem",
+                    lineHeight: 1.85,
+                    color: "#3A4742",
                   }}
                 >
                   Over a career spanning more than three decades, Dr Dwivedi has
@@ -457,10 +471,9 @@ export default function HomePage() {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: "1.1rem",
-                    lineHeight: 1.8,
-                    mb: 3,
-                    color: "#555",
+                    fontSize: "1.125rem",
+                    lineHeight: 1.85,
+                    color: "#3A4742",
                   }}
                 >
                   Alongside his scientific achievements, Dr Dwivedi has
@@ -468,22 +481,31 @@ export default function HomePage() {
                   migration, and lived experience. His writing journey was
                   nurtured through the Burnside Writers Group in Adelaide, and
                   his first nonfiction stories appeared in the 2025 anthology{" "}
-                  <Box component="span" sx={{ fontWeight: 700 }}>
+                  <Box
+                    component="span"
+                    sx={{ fontWeight: 700, color: "#2F6F4F" }}
+                  >
                     Tall Tales & True.
                   </Box>
                 </Typography>
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: "1.1rem",
-                    lineHeight: 1.8,
-                    mb: 3,
-                    color: "#555",
+                    fontSize: "1.125rem",
+                    lineHeight: 1.85,
+                    color: "#3A4742",
+                    p: 3,
+                    backgroundColor: "#f4fcf7",
+                    borderRadius: "16px",
+                    borderLeft: "5px solid #2F6F4F",
                   }}
                 >
                   In 2026, his autobiography, The Unlikely Indian Migrant,
                   became a{" "}
-                  <Box component="span" sx={{ fontWeight: 700 }}>
+                  <Box
+                    component="span"
+                    sx={{ fontWeight: 700, color: "#2F6F4F" }}
+                  >
                     {" "}
                     #1 Amazon Bestseller in Australia.
                   </Box>{" "}
@@ -497,10 +519,9 @@ export default function HomePage() {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: "1.1rem",
-                    lineHeight: 1.8,
-                    mb: 3,
-                    color: "#555",
+                    fontSize: "1.125rem",
+                    lineHeight: 1.85,
+                    color: "#3A4742",
                   }}
                 >
                   Through both science and storytelling, Dr Dwivedi explores
@@ -508,41 +529,53 @@ export default function HomePage() {
                   transition, and the enduring connection between people and
                   their roots. Thank you for visiting and sharing this journey.
                 </Typography>
-              </Box>
+              </Stack>
             </MotionBox>
           </Box>
         </Container>
       </Box>
 
-      {/* CTA Section */}
+      {/* CTA Section (Dynamic Mid-Break) */}
       <Box
         sx={{
-          py: 8,
-          background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)",
+          py: 10,
+          background: "linear-gradient(135deg, #ffffff 0%, #24352f 100%)",
           color: "white",
+          position: "relative",
+          overflow: "hidden",
         }}
       >
         <Container maxWidth="lg">
           <MotionBox
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            sx={{ textAlign: "center" }}
+            sx={{ textAlign: "center", position: "relative", zIndex: 2 }}
           >
-            <Typography variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
+            <Typography
+              variant="h3"
+              sx={{ fontWeight: 800, mb: 2, letterSpacing: "-0.01em" }}
+            >
               Let's Connect
             </Typography>
             <Typography
               variant="body1"
-              sx={{ mb: 4, fontSize: "1.1rem", color: "rgba(255,255,255,0.9)" }}
+              sx={{
+                mb: 5,
+                fontSize: "1.2rem",
+                color: "rgba(255,255,255,0.85)",
+                maxWidth: "700px",
+                mx: "auto",
+                fontWeight: 300,
+              }}
             >
               Interested in my work? Explore my articles and books, or get in
               touch to discuss collaborations and opportunities.
             </Typography>
             <Stack
               direction={{ xs: "column", sm: "row" }}
-              spacing={2}
+              spacing={2.5}
               justifyContent="center"
             >
               <Button
@@ -550,10 +583,14 @@ export default function HomePage() {
                 href="/blogs"
                 variant="contained"
                 sx={{
-                  background: "#8EE53F",
+                  background: "#2F6F4F",
                   color: "white",
-                  px: 4,
-                  py: 1.5,
+                  px: 5,
+                  py: 1.8,
+                  borderRadius: "10px",
+                  fontWeight: 600,
+                  textTransform: "none",
+                  "&:hover": { background: "#23533b" },
                 }}
                 endIcon={<ArrowRight />}
               >
@@ -568,16 +605,16 @@ export default function HomePage() {
                   borderWidth: "2px",
                   color: "white",
                   fontWeight: 600,
-                  px: 4,
-                  py: 1.5,
-                  fontSize: "1rem",
+                  px: 5,
+                  py: 1.8,
+                  borderRadius: "10px",
+                  textTransform: "none",
                   transition: "all 0.3s ease",
                   "&:hover": {
                     backgroundColor: "white",
-                    color: "#1a1a2e",
+                    color: "#141e1a",
                     borderColor: "white",
                     transform: "translateY(-2px)",
-                    boxShadow: "0 8px 20px rgba(255,255,255,0.3)",
                   },
                 }}
                 endIcon={<ArrowRight />}
@@ -590,22 +627,29 @@ export default function HomePage() {
       </Box>
 
       {/* Features Section */}
-      <Box sx={{ py: 8, backgroundColor: "#f8f9fa" }}>
+      <Box sx={{ py: 12, backgroundColor: "#f8fbf9" }}>
         <Container maxWidth="lg">
           <MotionBox
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            sx={{ textAlign: "center", mb: 6 }}
+            sx={{ textAlign: "center", mb: 8 }}
           >
-            <Typography variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
+            <Typography
+              variant="h3"
+              sx={{ fontWeight: 800, mb: 2, color: "#141e1a" }}
+            >
               What You'll Find Here
             </Typography>
             <Typography
               variant="body1"
-              color="textSecondary"
-              sx={{ maxWidth: "600px", mx: "auto" }}
+              sx={{
+                maxWidth: "600px",
+                mx: "auto",
+                color: "#60726a",
+                fontSize: "1.1rem",
+              }}
             >
               Explore a carefully curated collection of my thoughts, works, and
               creative endeavors
@@ -616,7 +660,7 @@ export default function HomePage() {
             sx={{
               display: "grid",
               gridTemplateColumns: { xs: "1fr", md: "1fr 1fr 1fr" },
-              gap: 3,
+              gap: 4,
             }}
           >
             {features.map((feature, index) => {
@@ -624,27 +668,59 @@ export default function HomePage() {
               return (
                 <MotionCard
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  transition={{ delay: index * 0.15, duration: 0.6 }}
                   viewport={{ once: true }}
+                  whileHover={{
+                    y: -10,
+                    boxShadow: "0 20px 40px rgba(47,111,79,0.08)",
+                  }}
                   sx={{
                     textAlign: "center",
                     height: "100%",
+                    borderRadius: "20px",
+                    border: "1px solid rgba(47,111,79,0.05)",
+                    boxShadow: "0 10px 30px rgba(0,0,0,0.02)",
+                    transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+                    background: "#ffffff",
                   }}
                 >
-                  <CardContent sx={{ pt: 4, pb: 4 }}>
-                    <IconComponent
+                  <CardContent sx={{ p: 5 }}>
+                    <Box
                       sx={{
-                        fontSize: "3rem",
-                        color: "#8EE53F",
-                        mb: 2,
+                        width: "70px",
+                        height: "70px",
+                        borderRadius: "50%",
+                        backgroundColor: "#f4fcf7",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        mx: "auto",
+                        mb: 3,
                       }}
-                    />
-                    <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
+                    >
+                      <IconComponent
+                        sx={{
+                          fontSize: "2.25rem",
+                          color: "#2F6F4F",
+                        }}
+                      />
+                    </Box>
+                    <Typography
+                      variant="h6"
+                      sx={{ fontWeight: 700, mb: 1.5, color: "#141e1a" }}
+                    >
                       {feature.title}
                     </Typography>
-                    <Typography variant="body2" color="textSecondary">
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: "#60726a",
+                        lineHeight: 1.6,
+                        fontSize: "0.95rem",
+                      }}
+                    >
                       {feature.description}
                     </Typography>
                   </CardContent>
@@ -657,7 +733,7 @@ export default function HomePage() {
 
       {/* Featured Blogs Section */}
       {featuredBlogs.length > 0 && (
-        <Box sx={{ py: 8, backgroundColor: "white" }}>
+        <Box sx={{ py: 12, backgroundColor: "#ffffff" }}>
           <Container maxWidth="lg">
             <MotionBox
               initial={{ opacity: 0, y: 20 }}
@@ -667,24 +743,32 @@ export default function HomePage() {
               sx={{
                 display: "flex",
                 justifyContent: "space-between",
-                alignItems: "center",
+                alignItems: "flex-end",
                 mb: 6,
               }}
             >
               <Box>
-                <Typography variant="h3" sx={{ fontWeight: 700, mb: 1 }}>
+                <Typography
+                  variant="h3"
+                  sx={{ fontWeight: 800, mb: 1, color: "#141e1a" }}
+                >
                   Latest Articles
                 </Typography>
-                <Typography variant="body1" color="textSecondary">
+                <Typography variant="body1" sx={{ color: "#60726a" }}>
                   Thoughts and insights from my writing journey
                 </Typography>
               </Box>
               <Button
                 component={Link}
                 href="/blogs"
-                variant="outlined"
+                variant="text"
                 endIcon={<ArrowRight />}
-                sx={{ display: { xs: "none", md: "flex" } }}
+                sx={{
+                  display: { xs: "none", md: "flex" },
+                  color: "#2F6F4F",
+                  fontWeight: 600,
+                  "&:hover": { background: "rgba(47,111,79,0.05)" },
+                }}
               >
                 View All
               </Button>
@@ -698,7 +782,7 @@ export default function HomePage() {
                   sm: "1fr 1fr",
                   md: "1fr 1fr 1fr",
                 },
-                gap: 3,
+                gap: 4,
               }}
             >
               {featuredBlogs.map((blog, index) => (
@@ -709,7 +793,7 @@ export default function HomePage() {
             <Box
               sx={{
                 textAlign: "center",
-                mt: 4,
+                mt: 5,
                 display: { xs: "block", md: "none" },
               }}
             >
@@ -717,7 +801,7 @@ export default function HomePage() {
                 component={Link}
                 href="/blogs"
                 variant="contained"
-                color="primary"
+                sx={{ background: "#2F6F4F", borderRadius: "10px", px: 4 }}
                 endIcon={<ArrowRight />}
               >
                 View All Articles
@@ -729,7 +813,7 @@ export default function HomePage() {
 
       {/* Featured Books Section */}
       {featuredBooks.length > 0 && (
-        <Box sx={{ py: 8, backgroundColor: "#f8f9fa" }}>
+        <Box sx={{ py: 12, backgroundColor: "#f8fbf9" }}>
           <Container maxWidth="lg">
             <MotionBox
               initial={{ opacity: 0, y: 20 }}
@@ -739,24 +823,32 @@ export default function HomePage() {
               sx={{
                 display: "flex",
                 justifyContent: "space-between",
-                alignItems: "center",
+                alignItems: "flex-end",
                 mb: 6,
               }}
             >
               <Box>
-                <Typography variant="h3" sx={{ fontWeight: 700, mb: 1 }}>
+                <Typography
+                  variant="h3"
+                  sx={{ fontWeight: 800, mb: 1, color: "#141e1a" }}
+                >
                   My Books
                 </Typography>
-                <Typography variant="body1" color="textSecondary">
+                <Typography variant="body1" sx={{ color: "#60726a" }}>
                   Check out my published works
                 </Typography>
               </Box>
               <Button
                 component={Link}
                 href="/books"
-                variant="outlined"
+                variant="text"
                 endIcon={<ArrowRight />}
-                sx={{ display: { xs: "none", md: "flex" } }}
+                sx={{
+                  display: { xs: "none", md: "flex" },
+                  color: "#2F6F4F",
+                  fontWeight: 600,
+                  "&:hover": { background: "rgba(47,111,79,0.05)" },
+                }}
               >
                 View All
               </Button>
@@ -770,7 +862,7 @@ export default function HomePage() {
                   sm: "1fr 1fr",
                   md: "1fr 1fr 1fr",
                 },
-                gap: 3,
+                gap: 4,
               }}
             >
               {featuredBooks.map((book, index) => (
@@ -781,7 +873,7 @@ export default function HomePage() {
             <Box
               sx={{
                 textAlign: "center",
-                mt: 4,
+                mt: 5,
                 display: { xs: "block", md: "none" },
               }}
             >
@@ -789,7 +881,7 @@ export default function HomePage() {
                 component={Link}
                 href="/books"
                 variant="contained"
-                color="primary"
+                sx={{ background: "#2F6F4F", borderRadius: "10px", px: 4 }}
                 endIcon={<ArrowRight />}
               >
                 View All Books
@@ -799,35 +891,42 @@ export default function HomePage() {
         </Box>
       )}
 
-      {/* CTA Section */}
+      {/* Bottom CTA Section */}
       <Box
         sx={{
-          py: 8,
-          background: "linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%)",
+          py: 12,
+          background: "linear-gradient(135deg, #ffffff 0%, #112620 100%)",
           color: "white",
           textAlign: "center",
         }}
       >
         <Container maxWidth="md">
           <MotionBox
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <Typography variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
+            <Typography
+              variant="h3"
+              sx={{ fontWeight: 800, mb: 2.5, letterSpacing: "-0.01em" }}
+            >
               Start Exploring Today
             </Typography>
             <Typography
               variant="body1"
-              sx={{ mb: 4, fontSize: "1.1rem", color: "rgba(255,255,255,0.9)" }}
+              sx={{
+                mb: 5,
+                fontSize: "1.15rem",
+                color: "rgba(255,255,255,0.8)",
+                fontWeight: 300,
+              }}
             >
-              Dive into my collection of articles and books, or visit the admin
-              panel to manage content
+              Dive into my collection of articles and books
             </Typography>
             <Stack
               direction={{ xs: "column", sm: "row" }}
-              spacing={2}
+              spacing={2.5}
               justifyContent="center"
             >
               <Button
@@ -836,10 +935,14 @@ export default function HomePage() {
                 variant="contained"
                 size="large"
                 sx={{
-                  background: "#8EE53F",
+                  background: "#2F6F4F",
                   fontSize: "1rem",
-                  py: 1.2,
-                  px: 3,
+                  fontWeight: 600,
+                  py: 1.6,
+                  px: 4,
+                  borderRadius: "10px",
+                  textTransform: "none",
+                  "&:hover": { background: "#23533b" },
                 }}
               >
                 Read Articles
@@ -850,11 +953,18 @@ export default function HomePage() {
                 variant="outlined"
                 size="large"
                 sx={{
-                  borderColor: "white",
+                  borderColor: "rgba(255,255,255,0.5)",
                   color: "white",
                   fontSize: "1rem",
-                  py: 1.2,
-                  px: 3,
+                  fontWeight: 600,
+                  py: 1.6,
+                  px: 4,
+                  borderRadius: "10px",
+                  textTransform: "none",
+                  "&:hover": {
+                    borderColor: "white",
+                    backgroundColor: "rgba(255,255,255,0.1)",
+                  },
                 }}
               >
                 Browse Books

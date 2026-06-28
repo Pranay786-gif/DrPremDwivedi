@@ -60,10 +60,10 @@ img {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8ee53f;
+  background: #2f6f4f;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #8ee53f;
+  background: #2f6f4f;
 }

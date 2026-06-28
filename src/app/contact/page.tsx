@@ -44,7 +44,7 @@ export default function ContactPage() {
             sx={{
               fontWeight: 800,
               mb: 2,
-              background: "linear-gradient(135deg, #ffffff 0%, #8EE53F 100%)",
+              background: "linear-gradient(135deg, #ffffff 0%, #2F6F4F 100%)",
               backgroundClip: "text",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -98,7 +98,7 @@ export default function ContactPage() {
               width: 120,
               height: 120,
               borderRadius: "50%",
-              background: "linear-gradient(135deg, #8EE53F 0%, #0f3460 100%)",
+              background: "linear-gradient(135deg, #2F6F4F 0%, #0f3460 100%)",
               mb: 3,
               animation: "pulse 2s infinite",
               "@keyframes pulse": {
@@ -162,7 +162,7 @@ export default function ContactPage() {
               },
             }}
           >
-            <EmailIcon sx={{ fontSize: 28, color: "#8EE53F" }} />
+            <EmailIcon sx={{ fontSize: 28, color: "#2F6F4F" }} />
             <MuiLink
               href="mailto:premdwivedi.writer@outlook.com.au"
               sx={{
@@ -172,7 +172,7 @@ export default function ContactPage() {
                 transition: "all 0.3s ease",
                 textDecoration: "none",
                 "&:hover": {
-                  color: "#8EE53F",
+                  color: "#2F6F4F",
                   textDecoration: "underline",
                 },
               }}
@@ -187,7 +187,7 @@ export default function ContactPage() {
               width: "80%",
               height: "2px",
               background:
-                "linear-gradient(90deg, transparent 0%, #8EE53F 50%, transparent 100%)",
+                "linear-gradient(90deg, transparent 0%, #2F6F4F 50%, transparent 100%)",
               mx: "auto",
               mb: 4,
             }}

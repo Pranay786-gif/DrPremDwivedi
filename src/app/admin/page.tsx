@@ -52,7 +52,7 @@ export default function AdminPage() {
       icon: Article,
       href: "/admin/blogs",
       stats: `${stats.blogs} posts`,
-      color: "#8EE53F",
+      color: "#2F6F4F",
     },
     {
       title: "Book Management",
@@ -77,7 +77,7 @@ export default function AdminPage() {
           spacing={2}
           sx={{ mb: 6, textAlign: "center" }}
         >
-          <Dashboard sx={{ fontSize: "3rem", color: "#8EE53F" }} />
+          <Dashboard sx={{ fontSize: "3rem", color: "#2F6F4F" }} />
           <Typography variant="h2" sx={{ fontWeight: 700 }}>
             Admin Dashboard
           </Typography>

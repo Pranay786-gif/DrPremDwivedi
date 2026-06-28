@@ -97,7 +97,7 @@ export function Header() {
                   fontSize: "1.3rem",
                   display: { xs: "none", sm: "block" },
                   background:
-                    "linear-gradient(135deg, #1a1a2e 0%, #8EE53F 100%)",
+                    "linear-gradient(135deg, #1a1a2e 0%, #2F6F4F 100%)",
                   backgroundClip: "text",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
@@ -125,7 +125,7 @@ export function Header() {
                 component={Link}
                 href={link.href}
                 sx={{
-                  color: isActive(link.href) ? "#8EE53F" : "#1a1a2e",
+                  color: isActive(link.href) ? "#2F6F4F" : "#1a1a2e",
                   fontWeight: isActive(link.href) ? 600 : 500,
                   position: "relative",
                   "&::after": {
@@ -135,7 +135,7 @@ export function Header() {
                     left: 0,
                     width: isActive(link.href) ? "100%" : "0%",
                     height: "2px",
-                    backgroundColor: "#8EE53F",
+                    backgroundColor: "#2F6F4F",
                     transition: "width 0.3s ease",
                   },
                   "&:hover::after": {
@@ -151,7 +151,7 @@ export function Header() {
             <Button
               onClick={handleAdminMenuOpen}
               sx={{
-                color: pathname.includes("/admin") ? "#8EE53F" : "#1a1a2e",
+                color: pathname.includes("/admin") ? "#2F6F4F" : "#1a1a2e",
                 fontWeight: pathname.includes("/admin") ? 600 : 500,
               }}
             >
@@ -223,7 +223,7 @@ export function Header() {
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
               sx={{
-                color: isActive(link.href) ? "#8EE53F" : "#1a1a2e",
+                color: isActive(link.href) ? "#2F6F4F" : "#1a1a2e",
                 fontWeight: isActive(link.href) ? 600 : 500,
                 py: 1.5,
                 px: 3,
@@ -238,7 +238,7 @@ export function Header() {
             href="/admin"
             onClick={() => setMobileMenuOpen(false)}
             sx={{
-              color: pathname.includes("/admin") ? "#8EE53F" : "#1a1a2e",
+              color: pathname.includes("/admin") ? "#2F6F4F" : "#1a1a2e",
               fontWeight: pathname.includes("/admin") ? 600 : 500,
               py: 1.5,
               px: 3,

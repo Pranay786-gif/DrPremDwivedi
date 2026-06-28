@@ -176,7 +176,7 @@ export default function BlogPage({ params }: BlogPageProps) {
                   mb: 2,
                 },
                 "& blockquote": {
-                  borderLeft: "4px solid #8EE53F",
+                  borderLeft: "4px solid #2F6F4F",
                   paddingLeft: "1.5rem",
                   marginLeft: 0,
                   marginRight: 0,
@@ -185,7 +185,7 @@ export default function BlogPage({ params }: BlogPageProps) {
                   color: "#666",
                 },
                 "& a": {
-                  color: "#8EE53F",
+                  color: "#2F6F4F",
                   textDecoration: "none",
                   "&:hover": {
                     textDecoration: "underline",

@@ -153,7 +153,7 @@ Access the admin panel at `/admin` to manage your content.
 Edit `src/lib/theme.ts` to customize colors:
 
 - Primary color: `#1a1a2e` (dark blue)
-- Secondary color: `#8EE53F` (kiwi green)
+- Secondary color: `#2F6F4F` (kiwi green)
 
 ### Typography
 

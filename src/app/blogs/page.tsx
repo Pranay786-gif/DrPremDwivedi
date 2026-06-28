@@ -99,7 +99,7 @@ export default function BlogsPage() {
             sx={{
               fontWeight: 700,
               mb: 2,
-              background: "linear-gradient(135deg, #1a1a2e 0%, #8EE53F 100%)",
+              background: "linear-gradient(135deg, #1a1a2e 0%, #2F6F4F 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -129,7 +129,7 @@ export default function BlogsPage() {
             value={searchTerm}
             onChange={(e) => handleSearch(e.target.value)}
             InputProps={{
-              startAdornment: <Search sx={{ mr: 2, color: "#8EE53F" }} />,
+              startAdornment: <Search sx={{ mr: 2, color: "#2F6F4F" }} />,
             }}
             sx={{
               "& .MuiOutlinedInput-root": {
